@@ -34,7 +34,7 @@ mysql-server mysql-server/root_password_again password 1234
 
 #### 2.再在项目目录下创建`secret.py`,内容填入（举例） ：<br>
 ```
-# database_secret.conf
+# secret.py
 # 设置随机字符串以及数据库登入密码、还有postfix设置
 
 secret_key = 'dasdasd'
