@@ -23,9 +23,23 @@
 
 ## 如何在您的电脑部署？
 #### 1.在项目目录下创建`database_secret.conf`,内容填入（举例） ：<br>
+```
+# database_secret.conf
+# 在此设置您的数据库密码
 
-![eg1](https://github.com/CHIKITCHONG/bbs/blob/master/data_base.conf.jpg)<br>
+mysql-server mysql-server/root_password password 1234
+mysql-server mysql-server/root_password_again password 1234
+```
+
 
 #### 2.再在项目目录下创建`secret.py`,内容填入（举例） ：<br>
+```
+# database_secret.conf
+# 设置随机字符串以及数据库登入密码、还有postfix设置
 
-![eg1](https://github.com/CHIKITCHONG/bbs/blob/master/secret.py.jpg)
+secret_key = 'dasdasd'
+test_mail = '请填入您的邮箱'
+admin_mail = 'bbs_club'
+database_password = '1234'
+
+```
