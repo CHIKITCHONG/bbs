@@ -1,0 +1,103 @@
+{% extends "topic/base.html" %}
+{% block title %}论坛主页{% endblock%}
+{% block main %}
+<div id="main">
+    {% if u %}
+    <div id="sidebar">
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">个人信息</span>
+            </div>
+            <div class="inner">
+                <div class="user_card">
+                    <div>
+                        <a class="user_avatar" href="{{ url_for('index.user_detail', id=u.id) }}">
+                          <img src="{{ u.image }}">
+                        </a>
+                        <span class="user_name">
+                            <a class="dark" href="{{ url_for('index.user_detail', id=u.id) }}">{{ u.username }}</a>
+                        </span><br>
+                        <span class="signature">
+                        “
+                            {{ u.signal }}
+                        ”
+                        </span><BR>
+                        <span class="signature">
+
+                            用户ID:{{ u.id }}
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+
+            <div class="inner">
+                <a href="{{ url_for('topic.new') }}" class="create_topic_btn">
+                    <span class="span-success">发布话题</span>
+                </a>
+                <a href="{{ url_for('setting.index') }}" class="create_topic_btn">
+                    <span class="span-success">个人设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div id="sidebar">
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">bbs club</span>
+            </div>
+            <div class='inner'>
+                <p>游客,欢迎光临！</p>
+                <a class="user_avatar" href="{{ url_for('index.index') }}">
+                &nbsp&nbsp<img src="/images/timg.jpe">
+                </a>
+                <div>
+                    请 <a href='{{ url_for('index.signin') }}'>登录</a>
+
+                    或 <a href='{{ url_for('index.signup') }}'>注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <a href="/topic"
+                   class="topic-tab current-tab">
+                    全部的帖子
+                </a>
+                {% for b in bs %}
+                <a href="/topic?board_id={{ b.id }}"
+                   class="topic-tab current-tab">
+                    {{ b.title }}
+                </a>
+                {% endfor %}
+            </div>
+            <div class="inner post">
+                <div class="topic_list">
+                    {% for t in ms %}
+                        {% set u = t.user() %}
+                    <div class="cell">
+                        <a class="topic_title_wrapper">
+                            <a class="user_avatar" href="{{ url_for('index.user_detail', id=u.id) }}">
+                                <img src="{{ u.image }}">
+                            </a>&nbsp&nbsp
+                            <a class="topic_title" href="{{ url_for('topic.detail', id=t.id) }}">
+                                {{ t.title }}
+                            </a>
+                            <span>{{ t.replies() | count }} / {{ t.views }}</span>
+                            <a class="last_time pull-right">创建于{{ t.formatted_time(t.created_time) }}</a>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

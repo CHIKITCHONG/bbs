@@ -1,0 +1,8 @@
+.idea
+config.py
+test.log.txt
+*.pyc
+secret.py
+database_secret.conf
+guavm.json
+guavm.box

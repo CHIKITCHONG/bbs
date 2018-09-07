@@ -1,0 +1,61 @@
+{% extends "topic/base.html" %}
+{% block title %}站内信{% endblock%}
+<body>
+{% block main %}
+<div id="main">
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">发送邮件</span>
+            </div>
+            <div class="inner">
+                <form method="post" action="{{ url_for('mail.add') }}">
+                    <input type="text" name="content" placeholder="content">
+                    <input type="text" name="title" placeholder="title">
+                    <input type="text" name="receiver_id" placeholder="用户id">
+                    <button type="submit">发送站内信</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">收到的站内信</span>
+            </div>
+            <div class="inner">
+                {% if received %}
+                {% for r in received %}
+                    <div>
+                        <a href="{{ url_for('.view', id = r.id) }}"> {{ r.title }}</a>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <div>
+                        暂无收到的站内信
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">发送的站内信</span>
+            </div>
+            <div class="inner">
+                {% if send %}
+                {% for s in send %}
+                    <div>
+                        <a href="{{ url_for('.view', id = s.id) }}"> {{ s.title }}</a>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <div>
+                        暂无发送的站内信
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>

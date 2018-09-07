@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="/static/css/main.app.ec525db0ddc655aadd0f.css">
+
+</head>
+<body class="EntrySign-body">
+    <div id="root">
+        <div class="SignFlowHomepage">
+            <div class="SignFlowHomepage-content">
+            <div class="Card SignContainer-content">
+                <a class='container'>
+                    <img src="/images/4606.png" height="237" width="395">
+                </a>
+                <div class="SignFlowHeader" style="padding-bottom:5px">
+                    <div class="SignFlowHeader-slogen">
+                        欢迎来到本论坛,请登录
+                    </div>
+
+                    <div class="SignContainer-inner">
+                        <div class="Login-content">
+                            <form novalidate="" class="SignFlow" method="post" action="{{ url_for('.login') }}" data-za-detail-view-path-module="SignInForm" data-za-extra-module="{&quot;card&quot;:{&quot;content&quot;:null}}">
+                                <div class="SignFlow-account">
+                                    <div class="SignFlowInput SignFlow-accountInputContainer">
+                                        <div class="SignFlow-accountInput Input-wrapper">
+                                            <input type="text" value="" name="username" class="Input" placeholder="test">
+                                        </div>
+                                        {% if flag == False %}
+                                        <div class="SignFlowInput-errorMask undefined">
+                                                "账号或密码错误"
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="SignFlow-password">
+                                    <div class="SignFlowInput">
+                                        <div class="Input-wrapper">
+                                            <input type="password" value="" name="password" class="Input" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Login-options">
+                                    <button onclick="window.location.href='/signup'" type="button" class="Button Login-cannotLogin Button--plain">还没有账号？点此注册</button>
+                                </div>
+                                    <button type="submit" class="Button SignFlow-submitButton Button--primary Button--blue">登录</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

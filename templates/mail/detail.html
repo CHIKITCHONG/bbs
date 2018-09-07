@@ -1,0 +1,21 @@
+{% extends "topic/base.html" %}
+{% block title %}站内信{% endblock%}
+<body>
+{% block main %}
+<div id="main">
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">站内信详情</span>
+            </div>
+            <div class="inner">
+                <p>发件人 id: {{ mail.sender_id }}</p>
+                <p>收件人 id: {{ mail.receiver_id }}</p>
+                <p>内容</p>
+                <p>{{ mail.content }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>

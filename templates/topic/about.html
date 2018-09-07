@@ -1,0 +1,117 @@
+{% extends "topic/base.html" %}
+{% block title %}论坛主页{% endblock%}
+{% block main %}
+<div id="main">
+    {% if u %}
+    <div id="sidebar">
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">个人信息</span>
+            </div>
+            <div class="inner">
+                <div class="user_card">
+                    <div>
+                        <a class="user_avatar" href="{{ url_for('index.user_detail', id=u.id) }}">
+                          <img src="{{ u.image }}">
+                        </a>
+                        <span class="user_name">
+                            <a class="dark" href="{{ url_for('index.user_detail', id=u.id) }}">{{ u.username }}</a>
+                        </span><br>
+                        <span class="signature">
+                        “
+                            {{ u.signal }}
+                        ”
+                        </span><BR>
+                        <span class="signature">
+
+                            用户ID:{{ u.id }}
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+
+            <div class="inner">
+                <a href="{{ url_for('topic.new') }}" class="create_topic_btn">
+                    <span class="span-success">发布话题</span>
+                </a>
+                <a href="{{ url_for('index.user_detail', id=u.id) }}" class="create_topic_btn">
+                    <span class="span-success">个人设置</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div id="sidebar">
+        <div class="panel">
+            <div class="header">
+                <span class="col_fade">bbs club</span>
+            </div>
+            <div class='inner'>
+                <p>游客,欢迎光临！</p>
+                <a class="user_avatar" href="{{ url_for('index.index') }}">
+                &nbsp&nbsp<img src="/images/timg.jpe">
+                </a>
+                <div>
+                    请 <a href='{{ url_for('index.signin') }}'>登录</a>
+
+                    或 <a href='{{ url_for('index.signup') }}'>注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+                <a class="current-tab">
+                    本站已实现功能
+                </a>
+            </div>
+            <div class="inner post">
+                <div class="topic_list">
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         用户登陆、注册、修改密码、修改签名
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         上传头像功能
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         导航栏、页眉、页脚
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         文章发表、评论功能
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         markdown语法功能
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         站内信、邮件功能、@at功能
+                        </p>
+                    </div>
+                    <div class="cell">
+                        <p class="topic_title_wrapper">
+                         能防御基本的csrf攻击
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

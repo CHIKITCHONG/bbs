@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/index.min.23a5b1ca.min.css">
+<head>
+<body>
+
+<!-- navbar -->
+<div class='navbar'>
+  <div class='navbar-inner'>
+    <a class='container'>
+        <a href='{{ url_for('index.index') }}' class="brand">
+        <img src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg">
+        </a>
+    </a>
+      {% if u %}
+      <ul class='nav pull-right'>
+        <li><a href='/'>首页</a></li>
+        <li><a href="{{ url_for('index.signout') }}" rel="nofollow">退出</a></li>
+        <li><a href="/about" target="">关于</a></li>
+        <li><a href="/mail" target="">站內信</a></li>
+      </ul>
+      {% else %}
+      <ul class='nav pull-right'>
+          <li><a href='/'>首页</a></li>
+          <li><a href="{{ url_for('index.about') }}" >关于</a></li>
+          <li><a href='{{ url_for('index.signup') }}'>注册</a></li>
+          <li><a href='{{ url_for('index.signin') }}'>登录</a></li>
+      </ul>
+      {% endif %}
+      <a class="btn btn-navbar" id="responsive-sidebar-trigger">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      </a>
+    </div>
+</div>
+
+{% block main %}
+{% endblock %}
+
+<div id="footer" class="fix-bottom">
+  <div id="footer_main">
+    <div class="links">
+      <a class="dark" href="https://cnodejs.org/rss">RSS</a>
+
+      <a class="dark" href="https://github.com/cnodejs/nodeclub/">源码地址</a>
+    </div>
+    <div class="col_fade">
+        <p>模仿CNode设计的bbs club</p>
+        <p>CNode 社区为国内最专业的 Node.js 开源技术社区，致力于 Node.js 的技术研究。</p>
+    </div>
+  </div>
+</div>
+</body>
+
+<script src="https://cdn.bootcss.com/marked/0.3.19/marked.min.js"></script>
+<script src="https://cdn.bootcss.com/prism/1.13.0/prism.js"></script>
+<script src="https://cdn.bootcss.com/prism/1.13.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/static/js/topic.js"></script>
+
+</html>
