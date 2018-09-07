@@ -43,3 +43,5 @@ admin_mail = 'bbs_club'
 database_password = '1234'
 
 ```
+## 运行部署文件
+```bash deploy.sh```
