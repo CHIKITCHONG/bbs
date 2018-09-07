@@ -19,3 +19,13 @@
 #### 6. 站内信、邮件功能、@at功能
 #### 7. 能防御基本的csrf攻击,跨站脚本攻击
 #### 8. 权限验证功能（发表话题以及评论或删除文章需要匹配的权限）
+<br>
+
+## 如何在您的电脑部署？
+#### 1.在项目目录下创建`database_secret.conf`,内容填入（举例） ：<br>
+
+![eg1](https://github.com/CHIKITCHONG/bbs/blob/master/data_base.conf.jpg)<br>
+
+#### 2.再在项目目录下创建`secret.py`,内容填入（举例） ：<br>
+
+![eg1](https://github.com/CHIKITCHONG/bbs/blob/master/secret.py.jpg)
