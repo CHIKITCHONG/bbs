@@ -7,6 +7,8 @@
 ![demo](https://github.com/CHIKITCHONG/bbs/blob/master/demo.gif)
 <br>
 
+## 展示
+[我的博客](193.112.171.150)<br>
 
 ## 功能介绍
 #### 1. 用户登陆、注册、修改密码、修改签名
